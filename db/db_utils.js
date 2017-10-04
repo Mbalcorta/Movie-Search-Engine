@@ -18,5 +18,13 @@ const addUser = (email, password) => {
   })
 }
 
-
+const addMovie = (movie_title) => {
+  db.one('INSERT INTO searches (movie_title) VALUES($1) RETURNING *', [movie_title])
+  .then(data => {
+    return data
+  })
+  .catch(err => {
+    console.log('Failed to add movie')
+  })
+}
 
