@@ -20,7 +20,7 @@ const addUser = (email, password) => {
 }
 
 const addMovie = (movie_title) => {
-  db.one('INSERT INTO searches (movie_title) VALUES($1) RETURNING *', [movie_title])
+  db.one('INSERT INTO searches (movie_title) VALUES($1) RETURNING *', movie_title)
   .then(data => {
     return data
   })
@@ -29,4 +29,8 @@ const addMovie = (movie_title) => {
   })
 }
 
-module.exports = { addUser, addMovie };
+const verifyUser = (email) => {
+  return db.one('SELECT * FROM users WHERE email=$1', email)
+}
+
+module.exports = { addUser, addMovie, verifyUser };
