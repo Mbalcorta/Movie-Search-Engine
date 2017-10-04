@@ -11,8 +11,7 @@ app.set('view engine', 'pug')
 app.set('views', './views')
 app.use(require('./routes/index'))
 app.use(require('./routes/login'))
+app.use(require('./routes/signup'))
 app.listen(3000, () => {
   console.log('port is running on 3000')
 })
-
-

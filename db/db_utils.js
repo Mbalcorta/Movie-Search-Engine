@@ -11,6 +11,7 @@ const db = pgp(cn)
 const addUser = (email, password) => {
   db.one('INSERT INTO users (email, password) VALUES($1, $2) RETURNING *', [email, password])
   .then(data => {
+    console.log(data);
     return data
   })
   .catch(err => {
@@ -28,3 +29,4 @@ const addMovie = (movie_title) => {
   })
 }
 
+module.exports = { addUser, addMovie };

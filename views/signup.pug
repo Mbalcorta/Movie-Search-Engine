@@ -1,1 +1,9 @@
 extends base.pug
+
+block content
+	form(action="/signup" method="POST")
+		span email
+		input(name="email" type="text")
+		span password
+		input(name="password" type="password")
+		button(type="submit") Login

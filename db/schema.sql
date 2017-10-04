@@ -2,7 +2,7 @@
 
 CREATE TABLE users (
 	userid SERIAL PRIMARY KEY,
-	email VARCHAR(255) NOT NULL,
+	email VARCHAR(255) UNIQUE NOT NULL,
 	password VARCHAR(255) NOT NULL
 );
 
@@ -12,4 +12,3 @@ CREATE TABLE searches (
 	movie_title VARCHAR(255),
 	search_date DATE
 );
-
