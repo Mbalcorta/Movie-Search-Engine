@@ -1,3 +1,5 @@
+\c moviesearch
+
 CREATE TABLE users (
 	userid SERIAL PRIMARY KEY,
 	email VARCHAR(255) NOT NULL,
@@ -5,14 +7,9 @@ CREATE TABLE users (
 );
 
 CREATE TABLE searches (
-	searchid SERIAL PRIMARY KEY,
-	movie_title VARCHAR(255)
-);
-
-CREATE TABLE search_history (
-	search_history_id SERIAL PRIMARY KEY,
 	userid INTEGER REFERENCES users(userid),
-	searchid INTEGER REFERENCES searches(searchid),
+	searchid SERIAL PRIMARY KEY,
+	movie_title VARCHAR(255),
 	search_date DATE
 );
 
