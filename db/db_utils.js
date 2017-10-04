@@ -1,2 +1,3 @@
-const pg = require('pg-promise')
+const pgp = require('pg-promise')()
+
 
