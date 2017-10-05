@@ -4,7 +4,11 @@ const cheerio = require('cheerio');
 const rp = require('request-promise');
 
 router.get('/', (req, res) => {
-  res.render('index.pug')
+  if(req.cookies.userid){
+    res.redirect('/')
+  } else {
+    res.redirect('signup')
+  }
 })
 
 router.post('/', (req, res) => {
