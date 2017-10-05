@@ -2,7 +2,11 @@
 const router = require('express').Router()
 
 router.get('/', (req, res) => {
-  res.render('index.pug', {title: 'home'})
+  if(req.cookies.userid){
+    res.redirect('/')
+  } else {
+    res.redirect('signup')
+  }
 })
 
 module.exports = router;
