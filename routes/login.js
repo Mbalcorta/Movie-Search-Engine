@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const verifyUser = require('./../db/db_utils.js').verifyUser;
-const bodyParser = require('body-parser');
 
 router.get('/login', (req, res) => {
   if(req.cookies.userid){
