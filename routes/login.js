@@ -1,13 +1,13 @@
 const router = require('express').Router()
 const verifyUser = require('./../db/db_utils.js').verifyUser;
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(cookieParser());
 
 router.get('/login', (req, res) => {
-  res.render('login')
+  if(req.cookies.userid){
+    res.redirect('/')
+  } else {
+    res.render('login')
+  }
 })
 
 router.post('/login', (req, res) => {
@@ -15,7 +15,7 @@ router.post('/login', (req, res) => {
   verifyUser(email)
   .then(data => {
     if(data.password === password) {
-     res.cookie(data.userid, 'userid');
+     res.cookie('userid', data.userid);
      res.redirect('/');
     }
     else {
