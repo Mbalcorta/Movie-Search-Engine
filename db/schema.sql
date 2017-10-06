@@ -9,6 +9,6 @@ CREATE TABLE users (
 CREATE TABLE searches (
 	userid INTEGER REFERENCES users(userid),
 	searchid SERIAL PRIMARY KEY,
-	movie_title VARCHAR(255),
-	search_date DATE
+	movie_title VARCHAR(255) NOT NULL,
+	search_date DATE NOT NULL
 );
