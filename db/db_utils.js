@@ -12,13 +12,14 @@ const addUser = (email, password) => {
   return db.one('INSERT INTO users (email, password) VALUES($1, $2) RETURNING *', [email, password])
 }
 
-const addMovie = (movie_title) => {
-  db.one('INSERT INTO searches (movie_title) VALUES($1) RETURNING *', movie_title)
+const addMovie = (userid, movie_title, search_date) => {
+  db.one('INSERT INTO searches (userid, movie_title, search_date) VALUES($1, $2, $3) RETURNING *', [userid, movie_title, search_date])
   .then(data => {
+    console.log(data);
     return data
   })
   .catch(err => {
-    console.log('Failed to add movie')
+    console.log('Failed to add movie', err)
   })
 }
 

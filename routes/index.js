@@ -2,6 +2,7 @@
 const router = require('express').Router()
 const cheerio = require('cheerio');
 const rp = require('request-promise');
+const addMovie = require('../db/db_utils.js').addMovie;
 
 router.get('/', (req, res) => {
   if(!req.cookies.userid){
@@ -13,6 +14,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const search = req.body.search;
+  addMovie(req.cookies.userid, search, new Date());
   const options = {
     uri: `http://www.imdb.com/find?ref_=nv_sr_fn&q=${search}&s=all`,
     transform: function (body) {
