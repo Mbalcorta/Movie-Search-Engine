@@ -4,10 +4,10 @@ const cheerio = require('cheerio');
 const rp = require('request-promise');
 
 router.get('/', (req, res) => {
-  if(req.cookies.userid){
-    res.redirect('/')
+  if(!req.cookies.userid){
+    res.redirect('/login')
   } else {
-    res.redirect('signup')
+    res.render('index');
   }
 })
 
@@ -23,14 +23,22 @@ router.post('/', (req, res) => {
   rp(options)
   .then(function ($) {
     $('small').remove()
-    console.log($('.findList')
+    const titles = $('.findList')
     .first()
     .find('.result_text')
     .map((index, element) => {
       return $(element).text().trim()
     })
-    .get()
-  )
+    .toArray()
+    const images = $('.findList')
+    .first()
+    .find('.primary_photo a img')
+    .map((index, element) => {
+      return $(element).attr('src');
+    })
+    .toArray()
+    console.log(titles);
+    console.log(images);
 })
 .catch(function (err) {
   console.log(err);
