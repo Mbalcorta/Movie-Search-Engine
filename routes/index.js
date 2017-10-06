@@ -39,8 +39,14 @@ router.post('/', (req, res) => {
       return $(element).attr('src');
     })
     .toArray()
-    console.log(titles);
-    console.log(images);
+    const movieResult = []
+    for (var i = 0; i < titles.length; i++) {
+      movieResult.push({
+        title: titles[i],
+        image: images[i]
+      })
+    }
+    res.render('index', {movieResult})
 })
 .catch(function (err) {
   console.log(err);
