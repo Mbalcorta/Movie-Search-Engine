@@ -5,10 +5,12 @@ const cheerio = require('cheerio')
 const cookieParser = require('cookie-parser')
 const request = require('request')
 const rp = require('request-promise')
+const path = require('path')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.set('view engine', 'pug')
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', './views')
 app.use(require('./routes/index'))
 app.use(require('./routes/login'))
