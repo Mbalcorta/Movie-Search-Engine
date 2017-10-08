@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const request = require('request')
 const rp = require('request-promise')
 const path = require('path')
-
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.set('view engine', 'pug')

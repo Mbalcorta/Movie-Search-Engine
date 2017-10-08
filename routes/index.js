@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   if(!req.cookies.userid){
     res.redirect('/login')
   } else {
-    res.render('index');
+    res.render('index', {movieResult: [{title:"", image: ""}]})
   }
 })
 
@@ -46,15 +46,13 @@ router.post('/', (req, res) => {
         image: images[i]
       })
     }
-    res.render('index', {movieResult})
+    return movieResult
+}).then( function(movieResult){
+  res.send(movieResult)
 })
 .catch(function (err) {
   console.log(err);
 });
 })
-
-
-
-
 
 module.exports = router;
