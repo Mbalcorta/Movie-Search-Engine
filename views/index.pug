@@ -2,12 +2,10 @@ extends base.pug
 
 block content
 	
+	div.navbar
+			button.searchHistory SearchHistory
 	h1 Movie Search Engine
-		form(method="POST" action="/")
-			input(name="search" type="text" required placeholder="Enter Movie Title")
-			button(type="submit") Search
-	div.container
-		ul
-			each val in movieResult
-				img(src= val.image)
-				li= val.title
+	div.searchBox
+			input(name="search" type="text" required placeholder="Enter Movie Title" id="search")
+			button.search(type="submit") Search
+	div.searchResults
