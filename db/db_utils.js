@@ -27,4 +27,8 @@ const verifyUser = (email) => {
   return db.one('SELECT * FROM users WHERE email=$1', email)
 }
 
-module.exports = { addUser, addMovie, verifyUser };
+const getHistory = (userid) => {
+  return db.any('SELECT movie_title, search_date FROM searches WHERE userid=$1', userid)
+}
+
+module.exports = { addUser, addMovie, verifyUser, getHistory };
