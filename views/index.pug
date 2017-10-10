@@ -3,7 +3,8 @@ extends base.pug
 block content
 	
 	div.navbar
-			button.searchHistory SearchHistory
+		a(href='http://localhost:3000/history')
+			button.history SearchHistory
 	h1 Movie Search Engine
 	div.searchBox
 			input(name="search" type="text" required placeholder="Enter Movie Title" id="search")
