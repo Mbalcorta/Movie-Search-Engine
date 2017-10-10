@@ -1,9 +1,12 @@
 extends base.pug
 
 block content
+  a(href='/')
+    button.home Homepage
   h1 Search History
   table
     each val in data
       tr
         td= val.movie_title
         td= val.search_date
+      
