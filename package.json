@@ -1,15 +1,19 @@
 {
   "name": "movieSearchEngine",
   "version": "1.0.0",
-  "description": "",
+  "description": "Movie Search Engine using Express, PostgreSQL and Cheerio",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "start:dev": "nodemon app.js",
+    "db:create": "createdb moviesearch",
+    "db:drop": "dropdb moviesearch",
+    "db:schema": "psql moviesearch < './db/schema.sql'",
+    "db:reset": "npm run db:drop && npm run db:create && npm run db:schema"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "James and Mateo",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
@@ -22,7 +26,6 @@
     "request-promise": "^4.2.2"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1",
-    "reload": "^2.2.2"
+    "nodemon": "^1.12.1"
   }
 }
