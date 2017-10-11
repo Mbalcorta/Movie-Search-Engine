@@ -1,7 +1,7 @@
 $( document ).ready(function() {
   $('.search').click(function(event){
-    $('.searchBox').hide()
     event.preventDefault()
+    $('.searchBox').hide()
     $.ajax({
           url: '/',
           type: 'POST',
