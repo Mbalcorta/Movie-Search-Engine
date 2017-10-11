@@ -8,7 +8,6 @@ router.get('/history', (req, res) => {
   } else {
     getHistory(userid)
     .then((data) => {
-      console.log(data);
       res.render('history', { data });
     })
   }
