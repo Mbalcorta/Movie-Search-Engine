@@ -1,5 +1,3 @@
-\c moviesearch
-
 CREATE TABLE users (
 	userid SERIAL PRIMARY KEY,
 	email VARCHAR(255) NOT NULL UNIQUE,

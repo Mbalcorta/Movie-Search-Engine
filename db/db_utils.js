@@ -15,7 +15,6 @@ const addUser = (email, password) => {
 const addMovie = (userid, movie_title, search_date) => {
   db.one('INSERT INTO searches (userid, movie_title, search_date) VALUES($1, $2, $3) RETURNING *', [userid, movie_title, search_date])
   .then(data => {
-    console.log(data);
     return data
   })
   .catch(err => {
