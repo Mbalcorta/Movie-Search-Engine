@@ -1,6 +1,6 @@
 $( document ).ready(function() {
-  const ajaxCall = function(event){
-    event.preventDefault()
+  const ajaxCall = function(e){
+    e.preventDefault()
     $.ajax({
           url: '/',
           type: 'POST',
