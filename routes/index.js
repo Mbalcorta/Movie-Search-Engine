@@ -17,9 +17,7 @@ router.post('/', (req, res) => {
   .then((movieResult) => {
     res.send(movieResult)
   })
-  .catch((err) => {
-    console.log(err);
-  });
+  .catch(console.log);
 })
 
 module.exports = router;

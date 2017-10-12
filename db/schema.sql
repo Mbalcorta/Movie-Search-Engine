@@ -5,8 +5,8 @@ CREATE TABLE users (
 );
 
 CREATE TABLE searches (
-	userid INTEGER REFERENCES users(userid),
 	searchid SERIAL PRIMARY KEY,
+	userid INTEGER REFERENCES users NOT NULL,
 	movie_title VARCHAR(255) NOT NULL,
 	search_date DATE NOT NULL
 );

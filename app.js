@@ -1,10 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const cheerio = require('cheerio')
 const cookieParser = require('cookie-parser')
-const request = require('request')
-const rp = require('request-promise')
 const path = require('path')
 
 app.use(bodyParser.json())

@@ -13,10 +13,7 @@ const addUser = (email, password) => {
 }
 
 const addMovie = (userid, movie_title, search_date) => {
-  db.one('INSERT INTO searches (userid, movie_title, search_date) VALUES($1, $2, $3) RETURNING *', [userid, movie_title, search_date])
-  .then(data => {
-    return data
-  })
+  return db.one('INSERT INTO searches (userid, movie_title, search_date) VALUES($1, $2, $3) RETURNING *', [userid, movie_title, search_date])
   .catch(err => {
     console.log('Failed to add movie', err)
   })
